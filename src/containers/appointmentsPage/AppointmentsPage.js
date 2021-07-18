@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+
 import { AppointmentForm } from '../../components/appointmentForm/AppointmentForm';
 import { TileList } from "../../components/tileList/TileList";
 
 export const AppointmentsPage = ({appointments, contacts, addAppointment}) => {
   const [currentTitle, setCurrentTitle] = useState('');
-  const [contact, setContact] = useState('');
+  const [contact, setContact] = useState(contacts.length > 0 ? contacts[0].name : "");
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
@@ -42,7 +43,7 @@ export const AppointmentsPage = ({appointments, contacts, addAppointment}) => {
       <section>
         <h2>Appointments</h2>
         <TileList
-          appointments={appointments}
+          tiles={appointments}
         />
       </section>
     </div>
